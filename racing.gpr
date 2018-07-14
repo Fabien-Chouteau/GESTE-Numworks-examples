@@ -1,0 +1,27 @@
+with "Ada_Drivers_Library/boards/Numworks/numworks_full";
+
+project Racing extends "GESTE/geste" is
+
+   for Runtime ("ada") use Numworks_Full'Runtime ("Ada");
+   for Target use Numworks_Full'Target;
+
+   for Source_Dirs use ("GESTE/examples/racing/src",
+                        "src/");
+
+   for Languages use ("Ada");
+   for Object_Dir use "obj/racing";
+   for Main use ("main.adb");
+   for Create_Missing_Dirs use "True";
+
+   package Compiler is
+      for Default_Switches ("Ada") use
+        GESTE.Compiler'Default_Switches ("Ada") &
+        Numworks_Full.Compiler'Default_Switches ("Ada") & "-gnatwB";
+   end Compiler;
+
+   package Linker is
+      for Default_Switches ("Ada") use ("-Wl,--print-memory-usage",
+                                        "-Wl,--gc-sections");
+   end Linker;
+
+end Racing;

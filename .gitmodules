@@ -1,0 +1,6 @@
+[submodule "Ada_Drivers_Library"]
+	path = Ada_Drivers_Library
+	url = https://github.com/Fabien-Chouteau/Ada_Drivers_Library
+[submodule "GESTE"]
+	path = GESTE
+	url = https://github.com/Fabien-Chouteau/GESTE
